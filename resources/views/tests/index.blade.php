@@ -14,4 +14,6 @@
 
     {!! link_to_route('tests.create', '新規テストの投稿') !!}
 
+    {!! link_to_route('tests.ajax', 'Ajaxによる新規テストの投稿') !!}
+
 @endsection

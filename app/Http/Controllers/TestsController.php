@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Test;
+use Log;
 
 class TestsController extends Controller
 {
@@ -109,5 +110,28 @@ class TestsController extends Controller
         $test->delete();
 
         return redirect('/');
+    }
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ajax()
+    {
+        $test = new Test;
+
+        return view('tests.ajax', [
+            'test' => $test,
+        ]);
+    }
+
+
+    public function doSomething(Request $request)
+    {
+        $test = new Test;
+        $test->content = $request->content;
+        $test->save();
     }
 }

@@ -12,5 +12,7 @@
 */
 
 Route::get('/', 'TestsController@index');
-
+Route::get('tests/ajax', 'TestsController@ajax')->name('tests.ajax');
+Route::post('tests/doSomething', 'TestsController@doSomething')->name('tests.doSomething');
 Route::resource('tests', 'TestsController');
+
