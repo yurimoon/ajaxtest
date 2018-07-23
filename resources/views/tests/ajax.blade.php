@@ -27,9 +27,14 @@ $("#sendButton").click(function(e){
         content : $("#content").val()
     },
     dataType : "json",
+    success : function(json) {
+      console.log(json);
+    },
+    error : function(XMLHttpRequest, textStatus, errorThrown) {
+      alert("エラーが発生しました：" + textStatus + ":\n" + errorThrown);
+    }
   });
 });
-
 
 </script>
 

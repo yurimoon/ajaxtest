@@ -132,6 +132,13 @@ class TestsController extends Controller
     {
         $test = new Test;
         $test->content = $request->content;
-        $test->save();
+        if($test->save()){
+          $status = 200;
+        } else {
+          $status = 500;
+        }
+        return response()->json([
+          'status' => $status,
+        ], $status);
     }
 }
